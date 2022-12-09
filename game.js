@@ -14,29 +14,33 @@ function getPlayerSelection(){
 
 function playRound(computerSelection, playerSelection){
     if (computerSelection == "ROCK" && playerSelection.toUpperCase() == "SCISSORS"){
-        return "You Win! Rock beats Scissors"
+        return ["Player","You Win! Rock beats Scissors"]
     }
     if (computerSelection == "ROCK" && playerSelection.toUpperCase() == "PAPER"){
-        return "You Lose! Paper beats rock"
+        return ["CPU","You Lose! Paper beats rock"]
     }
     if (computerSelection=="PAPER" && playerSelection.toUpperCase() =="ROCK"){
-        return "You Win! Paper beats rock"
+        return ["Player","You Win! Paper beats rock"]
     }
     if (computerSelection=="PAPER" && playerSelection.toUpperCase()=="SCISSORS"){
-        return "You Lose! Scissors beats paper"
+        return ["CPU","You Lose! Scissors beats paper"]
     }
     if (computerSelection=="SCISSORS" && playerSelection.toUpperCase()=="PAPER"){
-        return "You Win! Scissors beats Paper"
+        return ["Player","You Win! Scissors beats Paper"]
     }
     if (computerSelection=="SCISSORS" && playerSelection.toUpperCase()=="ROCK"){
-        return "You Lose! Rock beats Scissors"
+        return ["CPU","You Lose! Rock beats Scissors"]
     }
     else{
-        return "Draw, you both played the same thing!"
+        return ["DRAW","Draw, you both played the same thing!"]
     }
 }
 
 function game(){
-
+    let CPUScore = 0;
+    let PlayerScore = 0;
+    for (let i = 0; i<5; i++){
+        playRound(getComputerChoice(),getPlayerSelection());
+    }
 }
 console.log(getPlayerSelection());
