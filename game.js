@@ -12,7 +12,7 @@ function getPlayerSelection(){
 }
 
 
-function round(computerSelection, playerSelection){
+function playRound(computerSelection, playerSelection){
     if (computerSelection == "ROCK" && playerSelection.toUpperCase() == "SCISSORS"){
         return "You Win! Rock beats Scissors"
     }
@@ -36,5 +36,7 @@ function round(computerSelection, playerSelection){
     }
 }
 
+function game(){
 
+}
 console.log(getPlayerSelection());
