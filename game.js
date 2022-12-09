@@ -7,3 +7,31 @@ function getComputerChoice(){
     return shapes[position];
 }
 
+function getPlayerSelection(){
+    return shape = prompt("What will you play?");
+}
+
+
+function round(computerSelection, playerSelection){
+    if (computerSelection == "Rock" && playerSelection == "Scissors"){
+        return "You Win! Rock beats Scissors"
+    }
+    if (computerSelection == "Rock" && playerSelection == "Paper"){
+        return "You Lose! Paper beats rock"
+    }
+    if (computerSelection=="Paper" && playerSelection=="Rock"){
+        return "You Win! Paper beats rock"
+    }
+    if (computerSelection=="Paper" && playerSelection=="Scissors"){
+        return "You Lose! Scissors beats paper"
+    }
+    if (computerSelection=="Scissors" && playerSelection=="Paper"){
+        return "You Win! Scissors beats Paper"
+    }
+    if (computerSelection=="Scissors" && playerSelection=="Rock"){
+        return "You Lose! Rock beats Scissors"
+    }
+}
+
+
+console.log(getPlayerSelection());
