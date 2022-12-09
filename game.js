@@ -2,7 +2,7 @@
 //generate a random integer which will be used with the list to find the position being output
 //returns the shape the computer will play
 function getComputerChoice(){
-    const shapes = ["Rock", "Paper", "Scissors"];
+    const shapes = ["ROCK", "PAPER", "SCISSORS"];
     let position = Math.floor(Math.random() * 3);
     return shapes[position];
 }
@@ -13,22 +13,22 @@ function getPlayerSelection(){
 
 
 function round(computerSelection, playerSelection){
-    if (computerSelection == "Rock" && playerSelection == "Scissors"){
+    if (computerSelection == "ROCK" && playerSelection.toUpperCase() == "SCISSORS"){
         return "You Win! Rock beats Scissors"
     }
-    if (computerSelection == "Rock" && playerSelection == "Paper"){
+    if (computerSelection == "ROCK" && playerSelection.toUpperCase() == "PAPER"){
         return "You Lose! Paper beats rock"
     }
-    if (computerSelection=="Paper" && playerSelection=="Rock"){
+    if (computerSelection=="PAPER" && playerSelection.toUpperCase() =="ROCK"){
         return "You Win! Paper beats rock"
     }
-    if (computerSelection=="Paper" && playerSelection=="Scissors"){
+    if (computerSelection=="PAPER" && playerSelection.toUpperCase()=="SCISSORS"){
         return "You Lose! Scissors beats paper"
     }
-    if (computerSelection=="Scissors" && playerSelection=="Paper"){
+    if (computerSelection=="SCISSORS" && playerSelection.toUpperCase()=="PAPER"){
         return "You Win! Scissors beats Paper"
     }
-    if (computerSelection=="Scissors" && playerSelection=="Rock"){
+    if (computerSelection=="SCISSORS" && playerSelection.toUpperCase()=="ROCK"){
         return "You Lose! Rock beats Scissors"
     }
 }
