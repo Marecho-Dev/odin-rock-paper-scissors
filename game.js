@@ -40,7 +40,24 @@ function game(){
     let CPUScore = 0;
     let PlayerScore = 0;
     for (let i = 0; i<5; i++){
-        playRound(getComputerChoice(),getPlayerSelection());
+        let roundEnd = playRound(getComputerChoice(),getPlayerSelection());
+        if (roundEnd[0] == "CPU"){
+            CPUScore = CPUScore + 1;
+        }
+        else if (roundEnd[0] == "Player") {
+            PlayerScore = PlayerScore+1;
+        } 
+        console.log(roundEnd[1]);
+        console.log(CPUScore);
+        console.log(PlayerScore);
     }
-}
-console.log(getPlayerSelection());
+    
+    if (CPUScore>PlayerScore){
+        console.log("You lose!" + CPUScore + "-" + PlayerScore);
+    }
+    else if(PlayerScore > CPUScore){
+        console.log("You Win! " + PlayerScore + "-" + CPUScore);
+    }
+    }
+
+game();
