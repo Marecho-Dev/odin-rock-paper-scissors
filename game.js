@@ -31,6 +31,9 @@ function round(computerSelection, playerSelection){
     if (computerSelection=="SCISSORS" && playerSelection.toUpperCase()=="ROCK"){
         return "You Lose! Rock beats Scissors"
     }
+    else{
+        return "Draw, you both played the same thing!"
+    }
 }
 
 
