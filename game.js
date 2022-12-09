@@ -48,8 +48,6 @@ function game(){
             PlayerScore = PlayerScore+1;
         } 
         console.log(roundEnd[1]);
-        console.log(CPUScore);
-        console.log(PlayerScore);
     }
     
     if (CPUScore>PlayerScore){
