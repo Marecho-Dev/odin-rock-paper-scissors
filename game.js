@@ -13,23 +13,25 @@ function getPlayerSelection(){
 
 
 function playRound(computerSelection, playerSelection){
+    console.log("CPU SELECTION IS " + computerSelection);
+    console.log("player selection is "+ playerSelection);
     if (computerSelection == "ROCK" && playerSelection.toUpperCase() == "SCISSORS"){
-        return ["Player","You Win! Rock beats Scissors"]
+        return ["CPU","You Lose! Rock beats Scissors"]
     }
     if (computerSelection == "ROCK" && playerSelection.toUpperCase() == "PAPER"){
-        return ["CPU","You Lose! Paper beats rock"]
-    }
-    if (computerSelection=="PAPER" && playerSelection.toUpperCase() =="ROCK"){
         return ["Player","You Win! Paper beats rock"]
     }
+    if (computerSelection=="PAPER" && playerSelection.toUpperCase() =="ROCK"){
+        return ["CPU","You Lose! Paper beats rock"]
+    }
     if (computerSelection=="PAPER" && playerSelection.toUpperCase()=="SCISSORS"){
-        return ["CPU","You Lose! Scissors beats paper"]
+        return ["Player","You Win! Scissors beats paper"]
     }
     if (computerSelection=="SCISSORS" && playerSelection.toUpperCase()=="PAPER"){
-        return ["Player","You Win! Scissors beats Paper"]
+        return ["CPU","You Lose! Scissors beats Paper"]
     }
     if (computerSelection=="SCISSORS" && playerSelection.toUpperCase()=="ROCK"){
-        return ["CPU","You Lose! Rock beats Scissors"]
+        return ["Player","You Win! Rock beats Scissors"]
     }
     else{
         return ["DRAW","Draw, you both played the same thing!"]
@@ -57,5 +59,48 @@ function game(){
         console.log("You Win! " + PlayerScore + "-" + CPUScore);
     }
     }
+let results = document.querySelector('.Result');
+const rpsDivs = document.querySelectorAll('#rps');
+let cpu = 0;
+let player = 0;
+function alterScore(result){
+    let cpuScore = document.querySelector('.playerScore');
+    let playerScore = document.querySelector('.cpuScore');
+    if (result=="CPU"){
+        cpu = cpu+1;
+        cpuScore.textContent = cpu;
+    }
 
-game();
+    if (result=="Player"){
+        player=player+1;
+        playerScore.textContent = player;
+    }
+
+    if (cpu == 5){
+        results.textContent = "CPU WINS, YOU LOSE!"
+    }
+
+    if (player == 5){
+        results.textContent = "You Win!!"
+    }
+}
+// game();
+rpsDivs.forEach(rpsDiv=>{
+    rpsDiv.addEventListener(
+        'click',
+        ()=>{
+            roundResult = playRound(getComputerChoice(),rpsDiv.textContent);
+            results.textContent = roundResult[1];
+            alterScore(roundResult[0]);
+        }
+    );
+});
+
+
+
+
+console.log(results);
+// console.log(currentScore);
+
+
+

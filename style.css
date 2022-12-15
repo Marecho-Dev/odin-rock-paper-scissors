@@ -1,0 +1,66 @@
+body{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    height:100vh;
+    background-color: aqua;
+}
+
+.scoreboard{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:50px;
+    background-color:grey;
+    width:30%;
+    height:100px;
+    font-size:30px;
+}
+
+.cpu{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Result{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    font-size:30px;
+    background-color: grey;
+    width:30%;
+    height:100px;
+}
+.container{
+    background-color:red;
+    display:flex;
+    justify-content: center;
+    gap:20px;
+    width:30%;
+    padding-top:10px;
+    padding-bottom:10px;
+
+}
+
+#rps{
+    display:flex;
+    background-color: grey;
+    justify-content: center;
+    align-items:center;
+    font-size: 30px;
+    padding:20px;
+    flex-basis:500;
+    width:100px;
+    height: 100px;
+}
+
