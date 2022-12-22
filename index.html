@@ -9,23 +9,72 @@
     
   </head>
   <body>
-    <div class="scoreboard">
-      <div class="player">
-        <div>Player</div>
-        <div class="playerScore">0</div>
-      </div>
-      <div class="cpu">
-        <div>CPU</div>
-        <div class="cpuScore">0</div>
-      </div>
-      
+    <div class = "container">
+        <div class = "players">
+            <div class = "Ash">
+                <div class="profile-ash">
+                    <div class="picture"><img src="/Users/marek/repos/test/pkmbattler/pngegg.png">
+                    </div>
+                    </div>
+                <div class="ash-life" id="life" style="background-color:#3dff27;">
+                    <div class="HP">
+                        HP:
+                    </div>
+                    
+                </div>
+            </div>
+            <div class = "Gary">
+                <div class="gary-life" id="life" style="background-color:#3dff27;">
+                    <div class="HP" >
+                        HP:
+                    </div>
+                </div>
+                    <div class="profile-gary">
+                        <div class="picture"><img src="/Users/marek/repos/test/pkmbattler/pngegg.png">
+                        </div>
+                    </div>
+            </div>
+        </div> 
+        <!-- div.style.cssText = ‘color: blue; background: white’; -->
+        <!-- body {
+    height: 100%;
+    background: linear-gradient(90deg, #FFC0CB 50%, #00FFFF 50%);
+}-->
+
+        <div class = "battle">
+            <div class = "ash-pokemon">
+                <div class="charmander" id="rps">
+                    <div class="picture"><img src="/Users/marek/repos/test/pkmbattler/charmander.png"></div>
+                </div>
+                <div class="squirtle" id="rps">
+                    <div class="picture"><img src="/Users/marek/repos/test/pkmbattler/squirtle.png"></div>
+                </div>
+                <div class="bulbasaur" id="rps">
+                    <div class="picture"><img src="/Users/marek/repos/test/pkmbattler/bulbasaur.png"></div>
+                </div>
+            </div>
+            <div class="battlefield">
+            <div class="ash-side"></div>
+            <div class="gary-side"></div>
+                
+            </div>
+            <div class = "gary-pokemon">
+                <div class="pokeball" id="start">
+                    <div class="picture"><img src="/Users/marek/repos/test/pkmbattler/pokeball.png"></div>
+                </div>
+                <div class="pokeball">
+                    <div class="picture"><img src="/Users/marek/repos/test/pkmbattler/pokeball.png"></div>
+                </div>
+                <div class="pokeball">
+                    <div class="picture"><img src="/Users/marek/repos/test/pkmbattler/pokeball.png"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="Result">
+             
+        </div>
     </div>
-    <div class= "container">
-      <div class="rock" id ="rps">Rock</div>
-      <div class="Paper" id ="rps">Paper</div>
-      <div class="Scissors" id ="rps">Scissors</div>
-    </div>
-    <div class="Result"></div>
   </body>
 
   <script src="game.js"></script>

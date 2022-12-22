@@ -2,41 +2,111 @@
 //generate a random integer which will be used with the list to find the position being output
 //returns the shape the computer will play
 function getComputerChoice(){
-    const shapes = ["ROCK", "PAPER", "SCISSORS"];
+    const shapes = ["CHARMANDER", "SQUIRTLE", "BULBASAUR"];
     let position = Math.floor(Math.random() * 3);
     return shapes[position];
 }
 
-function getPlayerSelection(){
-    return shape = prompt("What will you play?");
-}
-
-
 function playRound(computerSelection, playerSelection){
     console.log("CPU SELECTION IS " + computerSelection);
     console.log("player selection is "+ playerSelection);
-    if (computerSelection == "ROCK" && playerSelection.toUpperCase() == "SCISSORS"){
-        return ["CPU","You Lose! Rock beats Scissors"]
+    if (computerSelection == "CHARMANDER" && playerSelection.toUpperCase() == "BULBASAUR"){
+        return ["CPU","You Lose! Fire is SUPER effective!"]
     }
-    if (computerSelection == "ROCK" && playerSelection.toUpperCase() == "PAPER"){
-        return ["Player","You Win! Paper beats rock"]
+    if (computerSelection == "CHARMANDER" && playerSelection.toUpperCase() == "SQUIRTLE"){
+        return ["Player","You Win! Water is SUPER effective!"]
     }
-    if (computerSelection=="PAPER" && playerSelection.toUpperCase() =="ROCK"){
-        return ["CPU","You Lose! Paper beats rock"]
+    if (computerSelection=="SQUIRTLE" && playerSelection.toUpperCase() =="CHARMANDER"){
+        return ["CPU","You Lose! Water is SUPER effective!"]
     }
-    if (computerSelection=="PAPER" && playerSelection.toUpperCase()=="SCISSORS"){
-        return ["Player","You Win! Scissors beats paper"]
+    if (computerSelection=="SQUIRTLE" && playerSelection.toUpperCase()=="BULBASAUR"){
+        return ["Player","You Win! Grass is SUPER effective!"]
     }
-    if (computerSelection=="SCISSORS" && playerSelection.toUpperCase()=="PAPER"){
-        return ["CPU","You Lose! Scissors beats Paper"]
+    if (computerSelection=="BULBASAUR" && playerSelection.toUpperCase()=="SQUIRTLE"){
+        return ["CPU","You Lose! Grass is SUPER effective!"]
     }
-    if (computerSelection=="SCISSORS" && playerSelection.toUpperCase()=="ROCK"){
-        return ["Player","You Win! Rock beats Scissors"]
+    if (computerSelection=="BULBASAUR" && playerSelection.toUpperCase()=="CHARMANDER"){
+        return ["Player","You Win! Fire is SUPER effective!"]
     }
     else{
-        return ["DRAW","Draw, you both played the same thing!"]
+        return ["DRAW","Draw, you both sent out the same pokemon!"]
     }
 }
+
+
+
+
+let results = document.querySelector('.Result'); //modifies the div that outputs round winner
+const rpsDivs = document.querySelectorAll('#rps'); //nodelist of all of the player's available pokemon charmander/squirtle/bulbasaur
+let ashLife = document.querySelector('.ash-life'); //ash life div
+let garyLife = document.querySelector('.gary-life'); //try and add a linear gradient for this
+let cpu = 0;
+let player = 0;
+
+//this function isn't being used...it was used in the previous rps design where player score was visible
+function alterScore(result){
+    let cpuScore = document.querySelector('.playerScore');
+    let playerScore = document.querySelector('.cpuScore');
+    if (result=="CPU"){
+        cpu = cpu+1;
+        cpuScore.textContent = cpu;
+    }
+
+    if (result=="Player"){
+        player=player+1;
+        playerScore.textContent = player;
+    }
+
+    if (cpu == 5){
+        results.textContent = "CPU WINS, YOU LOSE!"
+    }
+
+    if (player == 5){
+        results.textContent = "You Win!!"
+    }
+}
+
+let curSelection = "";
+// game();
+rpsDivs.forEach(rpsDiv=>{
+    rpsDiv.addEventListener(
+        'click',
+        ()=>{
+            roundResult = playRound(getComputerChoice(),rpsDiv.className);
+
+            if (roundResult[0] == "CPU" && cpu <5 && player <5){
+                cpu = cpu + 1;
+                // div.style.cssText = ‘color: blue; background: white’;
+                // console.log('background: linear-gradient(45deg, to right, #3dff27 '+(100-(cpu*20))+'%, #2e3440 '+cpu*20+'%);');
+                ashLife.style.cssText = 'background: linear-gradient(to right, #3dff27 0 '+(100-(cpu*20))+'%, #2e3440 0 '+cpu*20+'%);'
+                results.textContent = roundResult[1];
+                if (cpu==5){
+                    results.textContent = roundResult[1] + " You have been defeated, please visit the nearest Pokemon Center and try again!!!";
+                }
+
+            }
+            else if(roundResult[0] == "Player" && cpu<5 && player <5){
+                player = player + 1;
+                garyLife.style.cssText = 'background: linear-gradient(to right, #3dff27 0 '+(100-(player*20))+'%, #2e3440 0 '+player*20+'%);'
+                results.textContent = roundResult[1]
+                if (player==5){
+                    results.textContent = roundResult[1] + " Gary has been defeated, you are now the champion! Congratulations!!!";
+                }
+            }
+            else if(roundResult[0] == "DRAW" && cpu <5 && player <5){
+                results.textContent = roundResult[1];
+            }
+            console.log(cpu);
+            console.log(player);
+            // alterScore(roundResult[0]);
+        }
+    );
+});
+
+
+
+console.log(results);
+// console.log(currentScore);
 
 function game(){
     let CPUScore = 0;
@@ -59,48 +129,4 @@ function game(){
         console.log("You Win! " + PlayerScore + "-" + CPUScore);
     }
     }
-let results = document.querySelector('.Result');
-const rpsDivs = document.querySelectorAll('#rps');
-let cpu = 0;
-let player = 0;
-function alterScore(result){
-    let cpuScore = document.querySelector('.playerScore');
-    let playerScore = document.querySelector('.cpuScore');
-    if (result=="CPU"){
-        cpu = cpu+1;
-        cpuScore.textContent = cpu;
-    }
-
-    if (result=="Player"){
-        player=player+1;
-        playerScore.textContent = player;
-    }
-
-    if (cpu == 5){
-        results.textContent = "CPU WINS, YOU LOSE!"
-    }
-
-    if (player == 5){
-        results.textContent = "You Win!!"
-    }
-}
-// game();
-rpsDivs.forEach(rpsDiv=>{
-    rpsDiv.addEventListener(
-        'click',
-        ()=>{
-            roundResult = playRound(getComputerChoice(),rpsDiv.textContent);
-            results.textContent = roundResult[1];
-            alterScore(roundResult[0]);
-        }
-    );
-});
-
-
-
-
-console.log(results);
-// console.log(currentScore);
-
-
 
